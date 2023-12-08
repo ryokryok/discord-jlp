@@ -9,7 +9,7 @@ import {
 import { verifyKey } from "discord-interactions";
 import { Hono, MiddlewareHandler } from "hono";
 import { KOUSEI_COMMAND } from "./commands";
-import { yahooKousei } from "./utils";
+import { formatSuggestions, yahooKousei } from "./utils";
 
 type Env = {
   DISCORD_PUBLIC_KEY: string;
@@ -51,20 +51,11 @@ app.post("/api/interactions", verifyKeyMiddleware(), async (c) => {
         if ("options" in message.data) {
           const option = message.data.options?.at(0);
           if (option?.type === ApplicationCommandOptionType.String && option.value) {
-            const text = option.value;
-            const { result } = await yahooKousei(text, c.env.YAHOO_APP_ID);
+            const { result } = await yahooKousei(option.value, c.env.YAHOO_APP_ID);
             return c.json<APIInteractionResponse>({
               type: InteractionResponseType.ChannelMessageWithSource,
               data: {
-                content: `> ${text}
-            ${result.suggestions
-              .map(
-                (s) =>
-                  `\`\`\`diff\n${s.rule}${s.note && `\n補足: ${s.note}`}\n- ${s.word}\n+ ${
-                    s.suggestion
-                  }\`\`\``,
-              )
-              .join("\n")}`,
+                content: formatSuggestions(option.value, result.suggestions),
               },
             });
           }

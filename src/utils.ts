@@ -46,3 +46,32 @@ export const yahooKousei = async (text: string, appid: string): Promise<KouseiRe
   // @ts-ignore
   return res.json();
 };
+
+/**
+ * format suggestions to markdown text for Discord
+ * @param originalText
+ * @param suggestions
+ * @returns
+ *
+ * output format
+ *
+ * rule
+ * 補足: note
+ * ```diff
+ * + before
+ * - after
+ * ```
+ */
+export const formatSuggestions = (
+  originalText: string,
+  suggestions: KouseiResponse["result"]["suggestions"],
+): string => {
+  return `> ${originalText}\n${suggestions
+    .map(
+      (s) =>
+        `\`\`\`diff\n${s.rule}${s.note && `\n補足: ${s.note}`}\n- ${s.word}\n+ ${
+          s.suggestion
+        }\`\`\``,
+    )
+    .join("")}`;
+};
