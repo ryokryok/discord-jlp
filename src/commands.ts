@@ -12,7 +12,7 @@ export const KOUSEI_COMMAND = {
       name: "text",
       description: "校正したいテキストを入力します",
       required: true,
-      autocomplete: true,
+      autocomplete: false,
     },
   ],
 } satisfies RESTPostAPIApplicationCommandsJSONBody;
