@@ -1,5 +1,5 @@
 {
-  "name": "discord-jlp",
+  "name": "kousei",
   "description": "A Discord Bot for Japanese proofreading.",
   "version": "1.0.0",
   "license": "MIT",
@@ -12,6 +12,7 @@
     "format": "biome format --write ./src",
     "lint": "biome lint ./src",
     "check": "biome check --apply ./src",
+    "test": "vitest",
     "register": "tsm src/register.ts"
   },
   "dependencies": {
@@ -23,7 +24,9 @@
     "@biomejs/biome": "1.4.1",
     "@cloudflare/workers-types": "^4.20230914.0",
     "dotenv": "^16.3.1",
+    "msw": "^2.0.10",
     "tsm": "^2.3.0",
+    "vitest": "^1.0.2",
     "wrangler": "^3.15.0"
   }
 }

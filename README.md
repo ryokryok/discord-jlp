@@ -1,8 +1,24 @@
-# Discord Bot with Cloudflare Workers(Hono)
+<div align="center">
+    <img width="400" src="./screenshot.png" alt="Material Bread logo">
+</div>
+
+---
+
+<p align="center">
+  <a href="https://discordapp.com/users/1181098864963498094">
+    <b>Add Discord Bot</b>
+  </a>
+</p>
+
+---
+
+# Kousei (Discord Bot with Cloudflare Workers)
 
 A Discord Bot for Japanese proofreading with `/kousei` slash commend.
 
-## note
+Implemented in [Hono](https://github.com/honojs/hono/tree/main).
+
+## Note
 
 If you would like to run, you will need this.
 
@@ -66,6 +82,6 @@ Don't forget to setup `Interactions Endpoint URL`, this URL is maybe `*.*.worker
 
 https://github.com/discord/cloudflare-sample-app
 
-## license
+## License
 
 MIT
