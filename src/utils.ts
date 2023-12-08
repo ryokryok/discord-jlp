@@ -1,6 +1,6 @@
 const BASE_URL = "https://jlp.yahooapis.jp/";
 
-type KouseiRequestBody = {
+export type KouseiRequestBody = {
   id: string;
   jsonrpc: "2.0";
   method: "jlp.kouseiservice.kousei";
@@ -9,20 +9,18 @@ type KouseiRequestBody = {
   };
 };
 
-type KouseiResponse = {
+export type KouseiResponse = {
   id: string;
   jsonrpc: "2.0";
   result: {
-    suggestions: [
-      {
-        length: number;
-        note: string;
-        offset: number;
-        rule: string;
-        suggestion: string;
-        word: string;
-      },
-    ];
+    suggestions: {
+      length: number;
+      note: string;
+      offset: number;
+      rule: string;
+      suggestion: string;
+      word: string;
+    }[];
   };
 };
 
