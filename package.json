@@ -1,4 +1,11 @@
 {
+  "name": "discord-jlp",
+  "description": "A Discord Bot for Japanese proofreading.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Mr_ozin <mrozin.dev@gmail.com>"
+  },
   "scripts": {
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify src/index.ts",
