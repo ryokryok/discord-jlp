@@ -16,9 +16,15 @@ jobs:
       - run: corepack enable pnpm
       - run: pnpm install --frozen-lockfile
         name: Deploy
-      - run: pnpm run deploy
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          secrets: |
+            DISCORD_APPLICATION_ID
+            DISCORD_PUBLIC_KEY
+            DISCORD_TOKEN
+            YAHOO_APP_ID
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           DISCORD_APPLICATION_ID: ${{ secrets.DISCORD_APPLICATION_ID }}
           DISCORD_PUBLIC_KEY: ${{ secrets.DISCORD_PUBLIC_KEY }}
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
