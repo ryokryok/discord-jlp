@@ -1,6 +1,6 @@
-import { KOUSEI_COMMAND } from "./commands";
-import dotenv from "dotenv";
 import process from "node:process";
+import dotenv from "dotenv";
+import { KOUSEI_COMMAND } from "./commands";
 
 dotenv.config({ path: ".dev.vars" });
 

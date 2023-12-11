@@ -1,6 +1,6 @@
-import { afterAll, afterEach, beforeAll, describe, test, expect } from "vitest";
+import { http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
-import { HttpResponse, http } from "msw";
+import { afterAll, afterEach, beforeAll, describe, expect, test } from "vitest";
 import { KouseiResponse, formatSuggestions, yahooKousei } from "./utils";
 
 const MockKouseiResponse = {
