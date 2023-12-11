@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "wrangler dev src/index.ts",
-    "deploy": "wrangler deploy --minify src/index.ts --compatibility-date 2023-01-01",
+    "deploy": "wrangler deploy --minify src/index.ts --name kousei  --compatibility-date 2023-01-01",
     "format": "biome format --write ./src",
     "lint": "biome lint ./src",
     "check": "biome check --apply ./src",
